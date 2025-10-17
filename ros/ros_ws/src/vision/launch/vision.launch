@@ -1,0 +1,19 @@
+<launch>
+    <!-- 视觉处理节点 -->
+    <node pkg="autobot_vision" type="obstacle_detection.py" name="obstacle_detection" output="screen">
+        <param name="min_distance" value="0.3" />
+        <param name="max_distance" value="5.0" />
+        <param name="safety_threshold" value="0.8" />
+        <remap from="/camera/depth/image_raw" to="/camera/depth/image_raw" />
+    </node>
+    
+    <node pkg="autobot_vision" type="depth_filter" name="depth_filter" output="screen">
+        <param name="bilateral_d" value="5" />
+        <param name="bilateral_sigma_color" value="50.0" />
+        <param name="bilateral_sigma_space" value="50.0" />
+        <param name="median_kernel_size" value="3" />
+        <param name="gaussian_kernel_size" value="3" />
+        <remap from="/camera/depth/image_raw" to="/camera/depth/image_raw" />
+        <remap from="/camera/depth/filtered" to="/camera/depth/filtered" />
+    </node>
+</launch>

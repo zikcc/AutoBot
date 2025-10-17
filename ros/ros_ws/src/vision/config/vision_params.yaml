@@ -1,0 +1,12 @@
+# autobot_vision/config/vision_params.yaml
+obstacle_detection:
+  min_distance: 0.3      # 最小检测距离 (米)
+  max_distance: 5.0      # 最大检测距离 (米)
+  safety_threshold: 0.8   # 安全距离阈值 (米)
+
+depth_filter:
+  bilateral_d: 5
+  bilateral_sigma_color: 50.0
+  bilateral_sigma_space: 50.0
+  median_kernel_size: 3
+  gaussian_kernel_size: 3

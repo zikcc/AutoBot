@@ -1,0 +1,17 @@
+# autobot_control/config/control_params.yaml
+motion_controller:
+  # 速度限制
+  max_linear_speed: 0.5    # m/s
+  max_angular_speed: 1.0   # rad/s
+  safety_distance: 0.5     # m
+  control_rate: 10.0       # Hz
+  
+  # PID控制参数
+  pid_linear:
+    kp: 0.8
+    ki: 0.01
+    kd: 0.05
+  pid_angular:
+    kp: 1.2
+    ki: 0.02
+    kd: 0.1

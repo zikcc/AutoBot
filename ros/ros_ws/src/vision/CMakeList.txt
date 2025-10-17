@@ -1,0 +1,46 @@
+cmake_minimum_required(VERSION 3.0.2)
+project(autobot_vision)
+
+find_package(catkin REQUIRED COMPONENTS
+  roscpp
+  rospy
+  sensor_msgs
+  cv_bridge
+  image_transport
+)
+
+find_package(OpenCV REQUIRED)
+
+catkin_package(
+  CATKIN_DEPENDS roscpp rospy sensor_msgs cv_bridge image_transport
+)
+
+include_directories(
+  include
+  ${catkin_INCLUDE_DIRS}
+  ${OpenCV_INCLUDE_DIRS}
+)
+
+# 编译C++节点
+add_executable(depth_filter src/depth_filter.cpp)
+target_link_libraries(depth_filter
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES}
+)
+
+# 安装Python脚本
+catkin_install_python(PROGRAMS
+  src/obstacle_detection.py
+  scripts/calibrate_camera.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(TARGETS depth_filter
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(DIRECTORY launch/
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+)

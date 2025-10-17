@@ -1,0 +1,23 @@
+# autobot_voice/config/voice_params.yaml
+voice_command:
+  serial_port: "/dev/ttyUSB1"
+  baud_rate: 115200
+  command_timeout: 3.0
+  wakewords: ["小智", "robot"]
+  
+command_mapping:
+  forward:
+    linear_x: 0.5
+    angular_z: 0.0
+  backward:
+    linear_x: -0.3
+    angular_z: 0.0
+  "turn left":
+    linear_x: 0.0
+    angular_z: 1.0
+  "turn right":
+    linear_x: 0.0
+    angular_z: -1.0
+  stop:
+    linear_x: 0.0
+    angular_z: 0.0

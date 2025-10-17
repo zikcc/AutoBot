@@ -1,0 +1,10 @@
+<launch>
+    <!-- 语音命令节点 -->
+    <node pkg="autobot_voice" type="voice_command.py" name="voice_command" output="screen">
+        <param name="serial_port" value="/dev/ttyUSB1" />
+        <param name="baud_rate" value="115200" />
+        <param name="command_timeout" value="3.0" />
+        <remap from="/voice/recognized_command" to="/voice/commands" />
+        <remap from="/cmd_vel" to="/voice/cmd_vel" />
+    </node>
+</launch>

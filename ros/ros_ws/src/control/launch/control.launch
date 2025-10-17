@@ -1,0 +1,12 @@
+<launch>
+    <!-- 加载控制参数 -->
+    <rosparam command="load" file="$(find autobot_control)/config/control_params.yaml" />
+    
+    <!-- 启动运动控制节点 -->
+    <node pkg="autobot_control" type="motion_controller" name="motion_controller" output="screen">
+        <remap from="depth_image" to="/camera/depth/image_raw" />
+        <remap from="voice_commands" to="/voice/recognized_command" />
+        <remap from="odom" to="/odom" />
+        <remap from="cmd_vel" to="/cmd_vel" />
+    </node>
+</launch>

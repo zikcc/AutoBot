@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>autobot_bringup</name>
+  <version>0.1.0</version>
+  <description>Hardware bringup and serial communication for AutoBot project</description>
+  
+  <maintainer email="your.email@example.com">Your Name</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>serial</depend> <!-- 重要：串口库依赖 -->
+
+  <export>
+  </export>
+</package>

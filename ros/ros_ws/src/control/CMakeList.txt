@@ -1,0 +1,35 @@
+cmake_minimum_required(VERSION 3.0.2)
+project(autobot_control)
+
+find_package(catkin REQUIRED COMPONENTS
+  roscpp
+  rospy
+  std_msgs
+  geometry_msgs
+  sensor_msgs
+  nav_msgs
+  tf
+)
+
+catkin_package(
+  CATKIN_DEPENDS roscpp rospy std_msgs geometry_msgs sensor_msgs nav_msgs tf
+)
+
+include_directories(
+  include
+  ${catkin_INCLUDE_DIRS}
+)
+
+# 编译主控制节点
+add_executable(motion_controller src/motion_controller.cpp)
+target_link_libraries(motion_controller ${catkin_LIBRARIES})
+
+install(TARGETS motion_controller
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(DIRECTORY launch/
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+)

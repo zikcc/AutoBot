@@ -1,0 +1,20 @@
+{
+  "wakewords": ["小智", "robot", "hey bot"],
+  "commands": {
+    "前进": "forward",
+    "后退": "backward",
+    "左转": "turn left",
+    "右转": "turn right",
+    "停止": "stop",
+    "加速": "faster",
+    "减速": "slower",
+    "启动": "start",
+    "关闭": "shutdown",
+    "回家": "go home"
+  },
+  "settings": {
+    "sensitivity": 5,
+    "timeout": 3000,
+    "mode": "continuous"
+  }
+}

@@ -1,0 +1,7 @@
+<launch>
+    <node pkg="autobot_bringup" type="serial_bridge_node" name="serial_bridge" output="screen">
+        <param name="serial_port" value="/dev/ttyUSB0" />
+        <param name="baud_rate" value="115200" />
+        <param name="timeout_ms" value="1000" />
+    </node>
+</launch>
